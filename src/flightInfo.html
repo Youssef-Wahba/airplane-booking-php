@@ -1,0 +1,59 @@
+<!-- Flight Information Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Information</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Flight Information</h1>
+</header>
+
+<div class="flight-details2">
+    <h2>Flight Details</h2>
+    <p>ID: 1</p>
+    <p>Name: Flight 1</p>
+    <p>Itinerary: Some itinerary details</p>
+    <p>Pending Passengers List: Passenger 1, Passenger 2</p>
+    <p>Registered Passengers List: Passenger 3, Passenger 4</p>
+</div>
+
+<h3>Take it?</h3>
+<button onclick="openPaymentOption()">Take Flight</button>
+
+<div id="paymentOption" style="display: none;">
+    <h3>Choose Payment Option</h3>
+    <label class="inline-label">
+        <input type="radio" name="paymentType" value="fromAccount" checked>
+        Pay from Account $
+    </label>
+    <label class="inline-label">
+        <input type="radio" name="paymentType" value="cash">
+        Cash (dealing with company, no implementation)
+    </label>
+    <button style="display: inline-block;" onclick="pay()">Confirm and Pay</button>
+</div>
+
+<h3>Message the Company</h3>
+<!-- Added button to open Messages tab -->
+<button onclick="openMessagesPage()">Send Message</button>
+
+<script>
+    function openPaymentOption() {
+        document.getElementById('paymentOption').style.display = 'block';
+    }
+
+    function openMessagesPage() {
+        window.open('messages.html', '_blank');
+    }
+    function pay() {
+        alert(`Paid Successfully`);
+    }
+</script>
+
+</body>
+</html>

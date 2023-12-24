@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h1>Flight Search</h1>
+
+<form id="flightSearchForm" onsubmit="searchFlights(event)">
+    <label for="from">From:</label>
+    <input type="text" id="from" name="from" required>
+
+    <label for="to">To:</label>
+    <input type="text" id="to" name="to" required>
+
+    <button type="submit">Search</button>
+</form>
+
+<h2>List of Available Flights</h2>
+<ul class="flight-list" onclick="openFlightInfo(event)">
+    <li class="flight-list-item" data-flight-id="1">
+        Flight 1 - Some details
+    </li>
+    <li class="flight-list-item" data-flight-id="2">
+        Flight 2 - Some details
+    </li>
+    <!-- Add more flight list items as needed -->
+</ul>
+
+<div id="flightInfo" class="flight-details">
+    <h2>Flight Information</h2>
+    <p>ID: <span id="flightInfoId"></span></p>
+    <p>Name: <span id="flightInfoName"></span></p>
+    <p>Itinerary: <span id="flightInfoItinerary"></span></p>
+    <!-- Add more flight information details as needed -->
+</div>
+
+<script>
+    function searchFlights(event) {
+        event.preventDefault();
+        // Implement logic to search for flights based on the "From" and "To" values
+        // Update the flight list dynamically based on the search results
+    }
+
+    function openFlightInfo(event) {
+        const flightId = event.target.dataset.flightId;
+        if (flightId) {
+            // Fetch flight details based on flightId and update the details section
+            document.getElementById('flightInfoId').innerText = flightId;
+            // Update other flight information details as needed
+
+            // Display the flight details section
+            document.getElementById('flightInfo').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>

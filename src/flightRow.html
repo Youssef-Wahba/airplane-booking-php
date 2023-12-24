@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Details</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Flight Details</h1>
+</header>
+
+<p>ID: <span id="flightId">1</span></p>
+<p>Name: <span id="flightName">Flight 1</span></p>
+<p>Itinerary: <span id="flightItinerary">Departure City - Arrival City</span></p>
+<p>Pending Passengers List: <span id="pendingPassengers">Passenger 1, Passenger 2</span></p>
+<p>Registered Passengers List: <span id="registeredPassengers">Passenger 3, Passenger 4</span></p>
+<button onclick="cancelFlight()">Cancel Flight</button>
+
+<script>
+    function cancelFlight() {
+        // Implement logic to cancel the flight and refund passengers
+        // You can show a confirmation message or handle this as needed
+        alert('Flight canceled. Refunding passengers.');
+    }
+</script>
+
+</body>
+</html>

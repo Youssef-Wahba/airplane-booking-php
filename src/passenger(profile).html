@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Profile</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Passenger Profile</h1>
+</header>
+
+<form id="profileForm" onsubmit="updateProfile(event)">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="passenger@example.com" required>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="John Doe" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter new password">
+
+    <label for="tel">Telephone:</label>
+    <input type="tel" id="tel" name="tel" value="123-456-7890" required>
+
+    <button type="submit">Update Profile</button>
+</form>
+
+<script>
+    function updateProfile(event) {
+        event.preventDefault();
+        const form = document.getElementById('profileForm');
+        const formData = new FormData(form);
+
+        // Perform update logic (you can replace this with your actual update logic)
+        const email = formData.get('email');
+        const name = formData.get('name');
+        const password = formData.get('password');
+        const tel = formData.get('tel');
+
+        // Dummy update (replace with your actual logic)
+        alert(`Profile updated:
+        Email: ${email}
+        Name: ${name}
+        Password: ${password ? 'Updated' : 'Unchanged'}
+        Telephone: ${tel}`);
+    }
+</script>
+
+</body>
+</html>

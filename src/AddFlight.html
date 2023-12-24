@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flight</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<form id="addFlightForm" onsubmit="addFlight(event)">
+    <label for="flightName">Name:</label>
+    <input type="text" id="flightName" name="flightName" required>
+
+    <label for="flightId">ID:</label>
+    <input type="text" id="flightId" name="flightId" required>
+
+    <label for="flightItinerary">Itinerary:</label>
+    <input type="text" id="flightItinerary" name="flightItinerary" required>
+
+    <label for="flightFees">Fees:</label>
+    <input type="number" id="flightFees" name="flightFees" required>
+
+    <label for="numPassengers"># Passengers:</label>
+    <input type="number" id="numPassengers" name="numPassengers" required>
+
+    <label for="flightTime">Time:</label>
+    <input type="time" id="flightTime" name="flightTime[]" required>
+    <!-- You can add more time inputs as needed -->
+
+    <button type="submit">Add Flight</button>
+</form>
+
+<script>
+    function addFlight(event) {
+        event.preventDefault();
+        const form = document.getElementById('addFlightForm');
+        const formData = new FormData(form);
+
+        // Fetch form data and perform flight addition logic
+        const flightName = formData.get('flightName');
+        const flightId = formData.get('flightId');
+        const flightItinerary = formData.get('flightItinerary');
+        const flightFees = formData.get('flightFees');
+        const numPassengers = formData.get('numPassengers');
+        const flightTimes = formData.getAll('flightTime');
+
+        // Implement logic to add the flight with the collected data
+        console.log('Flight added:', {
+            flightName,
+            flightId,
+            flightItinerary,
+            flightFees,
+            numPassengers,
+            flightTimes
+        });
+
+        // You may want to redirect or show a success message here
+    }
+</script>
+
+</body>
+</html>
