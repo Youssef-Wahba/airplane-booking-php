@@ -9,7 +9,12 @@
 </head>
 
 <body>
-
+    <header>
+        <div class="header-buttons">
+            <button onclick="goToHomePage()">Home</button>
+            <button onclick="signOut()">Sign Out</button>
+        </div>
+    </header>
     <form id="addFlightForm" onsubmit="addFlight(event)">
         <label for="flightName">Name:</label>
         <input type="text" id="flightName" name="flightName" required>
@@ -58,6 +63,15 @@
             });
 
             // You may want to redirect or show a success message here
+        }
+        function goToHomePage() {
+            // Redirect to the home page (replace 'home.html' with your actual home page)
+            window.location.href = 'company-home.html';
+        }
+
+        function signOut() {
+            // Redirect to the login page (replace 'login.html' with your actual login page)
+            window.location.href = 'login.html';
         }
     </script>
 

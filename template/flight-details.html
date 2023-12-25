@@ -9,6 +9,10 @@
 <body>
 
 <header>
+    <div class="header-buttons">
+        <button onclick="goToHomePage()">Home</button>
+        <button onclick="signOut()">Sign Out</button>
+    </div>
     <h1>Flight Details</h1>
 </header>
 
@@ -24,6 +28,15 @@
         // Implement logic to cancel the flight and refund passengers
         // You can show a confirmation message or handle this as needed
         alert('Flight canceled. Refunding passengers.');
+    }
+    function goToHomePage() {
+            // Redirect to the home page (replace 'home.html' with your actual home page)
+            window.location.href = 'company-home.html';
+    }
+
+    function signOut() {
+        // Redirect to the login page (replace 'login.html' with your actual login page)
+        window.location.href = 'login.html';
     }
 </script>
 

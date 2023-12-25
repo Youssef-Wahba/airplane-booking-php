@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional Passenger Information</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+</head>
+<body>
+
+<h2>Additional Passenger Information</h2>
+
+<form id="additionalInfoForm" onsubmit="submitAdditionalInfo(event)">
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    function submitAdditionalInfo(event) {
+        event.preventDefault(); // Prevents the form from submitting in the default way
+
+        // Perform additional information submission logic here if needed
+
+        // You can redirect the user to a success page or perform other actions
+        window.location.href = 'login.html';
+    }
+</script>
+
+</body>
+</html>

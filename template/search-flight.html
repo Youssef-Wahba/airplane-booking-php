@@ -9,6 +9,12 @@
 </head>
 
 <body>
+    <header>
+        <div class="header-buttons">
+            <button onclick="goToHomePage()">Home</button>
+            <button onclick="signOut()">Sign Out</button>
+        </div>
+    </header>
 
     <h1>Flight Search</h1>
 
@@ -33,14 +39,6 @@
         <!-- Add more flight list items as needed -->
     </ul>
 
-    <div id="flightInfo" class="flight-details">
-        <h2>Flight Information</h2>
-        <p>ID: <span id="flightInfoId"></span></p>
-        <p>Name: <span id="flightInfoName"></span></p>
-        <p>Itinerary: <span id="flightInfoItinerary"></span></p>
-        <!-- Add more flight information details as needed -->
-    </div>
-
     <script>
         function searchFlights(event) {
             event.preventDefault();
@@ -51,13 +49,17 @@
         function openFlightInfo(event) {
             const flightId = event.target.dataset.flightId;
             if (flightId) {
-                // Fetch flight details based on flightId and update the details section
-                document.getElementById('flightInfoId').innerText = flightId;
-                // Update other flight information details as needed
-
-                // Display the flight details section
-                document.getElementById('flightInfo').style.display = 'block';
+                // Redirect to the flight info page for the selected flight
+                window.location.href = `flight-info.html?flightId=${flightId}`;
             }
+        }
+        function goToHomePage() {
+        // Redirect to the home page (replace 'home.html' with your actual home page)
+        window.location.href = 'passenger-home.html';
+        }
+        function signOut() {
+            // Redirect to the login page (replace 'login.html' with your actual login page)
+            window.location.href = 'login.html';
         }
     </script>
 

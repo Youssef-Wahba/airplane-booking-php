@@ -9,9 +9,13 @@
 <body>
 
 <header>
-    <h1>Passenger Name</h1>
-    <p>Email: passenger@example.com</p>
-    <img src="passenger_image.jpg" alt="Passenger Image">
+    <div class="header-buttons">
+        <button onclick="signOut()">Sign Out</button>
+    </div>
+    <h1>Lionel Messi</h1>
+    <img src="../assets/Messi.png" alt="Passenger Image">
+    <p>Email: thegoat69@example.com</p>
+    <p>Telephone: 0101511216</p>
 </header>
 
 <h2>List of Completed Flights</h2>
@@ -28,13 +32,17 @@
     <!-- Add more current flight list items as needed -->
 </ul>
 
-<h2>Profile</h2>
+<h2><a href="passenger-profile.html">Profile</a></h2>
 <!-- Passenger Profile Information -->
 
-<h2>Search a Flight</h2>
+<h2><a href="search-flight.html">Search a Flight</a></h2>
 <!-- Search Flight Form (you can add form elements as needed) -->
 
 <script>
+    function signOut() {
+        // Redirect to the login page (replace 'login.html' with your actual login page)
+        window.location.href = 'login.html';
+    }
     // You can add JavaScript functions for search functionality if required
 </script>
 

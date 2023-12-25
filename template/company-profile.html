@@ -11,16 +11,21 @@
 <body>
 
     <header>
+        <!-- Added buttons for home and sign out -->
+        <div class="header-buttons">
+            <button onclick="goToHomePage()">Home</button>
+            <button onclick="signOut()">Sign Out</button>
+        </div>
         <h1>Company Name</h1>
-        <img src="company_logo.png" alt="Company Logo" width="100">
+        <img src="../assets/egyptair-logo-1.png" alt="Company Logo" class="company-logo">
+
     </header>
 
     <div class="profile-info">
         <h3>Company Profile</h3>
-        <img src="company_logo.png" style="max-width: 100%; height: auto;" alt="Company Logo">
-        <p>Name: Company Name</p>
-        <p>Bio: Company Bio</p>
-        <p>Address: Company Address</p>
+        <p id="companyName">Name: Company Name</p>
+        <p id="companyBio">Bio: Company Bio</p>
+        <p id="companyAddress">Address: Company Address</p>
 
         <h3>Flights List</h3>
         <ul>
@@ -30,11 +35,68 @@
         </ul>
 
         <button onclick="editProfile()">Edit</button>
+
+        <!-- Edit Form (initially hidden) -->
+        <div id="editForm" style="display: none;">
+            <h3>Edit Company Profile</h3>
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" value="Company Name">
+
+            <label for="editBio">Bio:</label>
+            <input type="text" id="editBio" value="Company Bio">
+
+            <label for="editAddress">Address:</label>
+            <input type="text" id="editAddress" value="Company Address">
+
+            <button onclick="saveChanges()">Save Changes</button>
+        </div>
     </div>
 
     <script>
         function editProfile() {
-            // Redirect t
+            // Show the edit form
+            document.getElementById('editForm').style.display = 'block';
+
+            // Hide the profile information
+            document.querySelectorAll('.profile-info p').forEach(function (element) {
+                element.style.display = 'none';
+            });
+
+            // Hide the edit button
+            document.querySelector('button').style.display = 'none';
+        }
+
+        function saveChanges() {
+            // Get values from the edit form
+            var newName = document.getElementById('editName').value;
+            var newBio = document.getElementById('editBio').value;
+            var newAddress = document.getElementById('editAddress').value;
+
+            // Update the profile information
+            document.getElementById('companyName').textContent = 'Name: ' + newName;
+            document.getElementById('companyBio').textContent = 'Bio: ' + newBio;
+            document.getElementById('companyAddress').textContent = 'Address: ' + newAddress;
+
+            // Hide the edit form
+            document.getElementById('editForm').style.display = 'none';
+
+            // Show the profile information
+            document.querySelectorAll('.profile-info p').forEach(function (element) {
+                element.style.display = 'block';
+            });
+
+            // Show the edit button
+            document.querySelector('button').style.display = 'block';
+        }
+
+        function goToHomePage() {
+            // Redirect to the home page (replace 'home.html' with your actual home page)
+            window.location.href = 'company-home.html';
+        }
+
+        function signOut() {
+            // Redirect to the login page (replace 'login.html' with your actual login page)
+            window.location.href = 'login.html';
         }
     </script>
 

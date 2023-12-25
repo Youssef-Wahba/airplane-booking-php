@@ -1,10 +1,20 @@
- body {
+body {
     font-family: Arial, sans-serif;
     margin: 20px;
 }
  header {
     text-align: center;
     margin-bottom: 20px;
+}
+.company-logo {
+    width: 1000px;
+    border: 2px solid white;
+    border-radius: 0px;
+}
+.header-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 form {
     max-width: 400px;
@@ -75,3 +85,25 @@ img {
     padding: 20px;
     margin-bottom: 20px;
 } 
+/* Additional CSS for styling the messages page */
+.messages-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px;
+}
+
+.message-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.message-item {
+    border: 1px solid #ddd;
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.message-item:hover {
+    background-color: #f0f0f0;
+}

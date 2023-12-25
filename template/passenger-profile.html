@@ -9,6 +9,10 @@
 <body>
 
 <header>
+    <div class="header-buttons">
+        <button onclick="goToHomePage()">Home</button>
+        <button onclick="signOut()">Sign Out</button>
+    </div>
     <h1>Passenger Profile</h1>
 </header>
 
@@ -46,6 +50,14 @@
         Name: ${name}
         Password: ${password ? 'Updated' : 'Unchanged'}
         Telephone: ${tel}`);
+    }
+    function goToHomePage() {
+        // Redirect to the home page (replace 'home.html' with your actual home page)
+        window.location.href = 'passenger-home.html';
+    }
+    function signOut() {
+        // Redirect to the login page (replace 'login.html' with your actual login page)
+        window.location.href = 'login.html';
     }
 </script>
 
