@@ -1,0 +1,81 @@
+CREATE TABLE Account (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    is_company BOOL NOT NULL
+);
+
+
+# one to one with account
+
+CREATE TABLE Company (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    bio  VARCHAR(255),
+    address  VARCHAR(255),
+    telephone  VARCHAR(15),
+    logo_img varchar(255),
+    account_id INT NOT NULL,
+    FOREIGN KEY (account_id) REFERENCES account(id)
+);
+
+
+# one to one with account
+
+CREATE TABLE Passenger (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    tel VARCHAR(20),
+    photo_img VARCHAR(255),
+    passport_img VARCHAR(255),
+    account_id INT NOT NULL,
+    FOREIGN KEY (account_id) REFERENCES Account(id)
+);
+
+
+CREATE TABLE City (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE Flight (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    fee DECIMAL(10, 2) NOT NULL,
+    start_date DATE,
+    end_date DATE
+);
+
+
+# many to one with company
+
+ALTER TABLE flight
+ADD COLUMN company_id INT NOT NULL,
+ADD FOREIGN KEY (company_id) REFERENCES Company(id);
+
+
+
+
+# many to many
+
+CREATE TABLE FlightPassenger (
+    passenger_id INT NOT NULL,
+    flight_id INT NOT NULL,
+    isComplete BOOL,
+    PRIMARY KEY (passenger_id, flight_id),
+    FOREIGN KEY (passenger_id) REFERENCES Passenger(id),
+    FOREIGN KEY (flight_id) REFERENCES Flight(id)
+);
+
+
+
+
+
+CREATE TABLE FlightCity (
+    flight_id INT NOT NULL,
+    city_id INT NOT NULL,
+    PRIMARY KEY (flight_id, city_id),
+    FOREIGN KEY (flight_id) REFERENCES Flight(id),
+    FOREIGN KEY (city_id) REFERENCES city(id)
+);
