@@ -17,7 +17,7 @@ CREATE TABLE Company (
     location varchar(255),
     telephone  VARCHAR(15),
     logo_img varchar(255),
-    account_id INT NOT NULL,
+    account_id INT NOT NULL UNIQUE,
     FOREIGN KEY (account_id) REFERENCES account(id)
 );
 
@@ -30,7 +30,7 @@ CREATE TABLE Passenger (
     tel VARCHAR(20),
     photo_img VARCHAR(255),
     passport_img VARCHAR(255),
-    account_id INT NOT NULL,
+    account_id INT NOT NULL UNIQUE,
     FOREIGN KEY (account_id) REFERENCES Account(id)
 );
 
