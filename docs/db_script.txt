@@ -54,12 +54,19 @@ CREATE TABLE Flight (
     FOREIGN KEY (company_id) REFERENCES Company(id)
 );
 
+# add start and end city to flight
+ALTER TABLE Flight
+ADD COLUMN start_city_id INT NOT NULL,
+ADD COLUMN end_city_id INT NOT NULL,
+ADD FOREIGN KEY (start_city_id) REFERENCES City(id),
+ADD FOREIGN KEY (end_city_id) REFERENCES City(id);
+
 # many to many
 
 CREATE TABLE FlightPassenger (
     passenger_id INT NOT NULL,
     flight_id INT NOT NULL,
-    isComplete BOOL,
+    is_complete BOOL,
     PRIMARY KEY (passenger_id, flight_id),
     FOREIGN KEY (passenger_id) REFERENCES Passenger(id),
     FOREIGN KEY (flight_id) REFERENCES Flight(id)
@@ -74,3 +81,53 @@ CREATE TABLE FlightCity (
     FOREIGN KEY (flight_id) REFERENCES Flight(id),
     FOREIGN KEY (city_id) REFERENCES City(id)
 );
+
+
+
+
+
+
+
+# populate City table
+
+INSERT INTO City (name) VALUES
+('Dubai'),
+('Abu Dhabi'),
+('Riyadh'),
+('Cairo'),
+('Doha'),
+('Amman'),
+('Kuwait City'),
+('Muscat'),
+('Manama'),
+('Alexandria'),
+('Giza'),
+('Shubra El Kheima'),
+('Port Said'),
+('Suez'),
+('Luxor'),
+('Tanta'),
+('Asyut'),
+('Ismailia'),
+('Faiyum'),
+('Zagazig'),
+('Aswan'),
+('Damietta'),
+('Damanhur'),
+('Jeddah'),
+('Medina'),
+('Istanbul'),
+('Ankara'),
+('Tehran'),
+('Baghdad'),
+('Aleppo'),
+('Beirut'),
+('Gaza City'),
+('Aden'),
+('Sanaa'),
+('Erbil'),
+('Manbij'),
+('Kirkuk'),
+('Najaf'),
+('Homs'),
+('Latakia');

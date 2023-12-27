@@ -14,7 +14,7 @@ class AccountController{
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "select * from account where email = '$email' and password = '$password'";
+        $sql = "select * from Account where email = '$email' and password = '$password'";
         $result = $conn->query($sql);
 
         if($result->num_rows == 1){
