@@ -2,6 +2,14 @@
 
 require_once "../airplane-booking-php/config/database.php";
 class AccountController{
+
+
+    /**
+     * @return array|null Returns an associative array containing the account details if the login is successful, or null if the login failed.
+     * 
+     * If the provided email and password match an account in the database, the function will return an associative array containing the account details.
+     * If the provided email and password do not match any account in the database, the function will return null.
+     */
     public static function login($email, $password){
         $db = Database::getInstance();
         $conn = $db->getConnection();
