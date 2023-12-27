@@ -17,6 +17,14 @@ class AccountController{
     }
 
 
+
+    /**
+     * @return int|bool The ID of the newly created account if successful, or false if the registration failed.
+     * 
+     * If the email or username already exists in the database, the function will return false.
+     * If the account is successfully created, the function will return the ID of the newly created account.
+     * If there is an error while inserting the new account into the database, the function will also return false.
+     */
     public static function register($email, $username, $password, $is_company){
         $db = Database::getInstance();
         $conn = $db->getConnection();
@@ -25,7 +33,7 @@ class AccountController{
         $sql = "select * from account where email = '$email'";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
-            echo "email exists";
+            echo "email exists" . "<br>";
             return false;
         }
 
@@ -33,7 +41,7 @@ class AccountController{
         $sql = "select * from account where username = '$username'";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
-            echo "username exists";
+            echo "username exists" . "<br>";
             return false;
         }
 
@@ -42,7 +50,9 @@ class AccountController{
                 values ('$email','$username', '$password', $is_company)";
             
         if($conn->query($sql) === TRUE){
-            return true;
+            // return account id
+            $id = $conn->insert_id;
+            return $id;
         } else {
             return false;
         }
