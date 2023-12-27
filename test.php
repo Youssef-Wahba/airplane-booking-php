@@ -63,6 +63,21 @@
         
 
 
+/*
+    CREATE TABLE Flight (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    fee DECIMAL(10, 2) NOT NULL,
+    passenger_capacity INT NOT NULL,
+    company_id INT NOT NULL,
+    FOREIGN KEY (company_id) REFERENCES Company(id)
+    );
+*/
+
+// insert into flight
+// $sql = "insert into flight (name, fee, passenger_capacity, company_id) values ('name', 100, 100, 1)";
+
+
        
 
 
