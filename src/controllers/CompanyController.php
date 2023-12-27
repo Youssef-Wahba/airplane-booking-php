@@ -16,12 +16,12 @@ require_once "../airplane-booking-php/config/database.php";
     FOREIGN KEY (account_id) REFERENCES account(id)
 */
 class CompanyController{
-    // get company by account id
+    // get Company by account id
     public static function getCompanyByAccountId($account_id){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "select * from company where account_id = $account_id";
+        $sql = "select * from Company where account_id = $account_id";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) {
@@ -31,12 +31,12 @@ class CompanyController{
         return null;
     }
 
-    // get company by id
+    // get Company by id
     public static function getCompanyById($id){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "select * from company where id = $id";
+        $sql = "select * from Company where id = $id";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) {
@@ -46,12 +46,12 @@ class CompanyController{
         return null;
     }
 
-    // add company
+    // add Company
     public static function addCompany($name, $bio, $address, $location, $telephone, $logo_img, $account_id){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "insert into company(name, bio, address, location, telephone, logo_img, account_id)
+        $sql = "insert into Company(name, bio, address, location, telephone, logo_img, account_id)
                 values ('$name', '$bio', '$address', '$location', '$telephone', '$logo_img', $account_id)";
             
         if($conn->query($sql) === TRUE){
@@ -62,12 +62,12 @@ class CompanyController{
     }
 
 
-    // update company by acount id
+    // update Company by acount id
     public static function updateCompanyByAccountId($name, $bio, $address, $location, $telephone, $logo_img, $account_id){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "update company 
+        $sql = "update Company 
                 set name = '$name', 
                 bio = '$bio', 
                 address = '$address', 
@@ -83,12 +83,12 @@ class CompanyController{
         }
     }
 
-    // update company by id
+    // update Company by id
     public static function updateCompanyById($id, $name, $bio, $address, $location, $telephone, $logo_img){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "update company 
+        $sql = "update Company 
                 set name = '$name', 
                 bio = '$bio', 
                 address = '$address', 
@@ -104,12 +104,12 @@ class CompanyController{
         }
     }
 
-    // TODO: get company flights
-    // public static function getCompanyFlights($company_id){
+    // TODO: get Company flights
+    // public static function getCompanyFlights($Company_id){
     //     $db = Database::getInstance();
     //     $conn = $db->getConnection();
 
-    //     $sql = "select * from flight where company_id = $company_id";
+    //     $sql = "select * from flight where Company_id = $Company_id";
     //     $result = $conn->query($sql);
 
     //     if ($result->num_rows > 0) {
@@ -121,8 +121,5 @@ class CompanyController{
     //     }
     //     return null;
     // }
-
-
-
 }
 ?>

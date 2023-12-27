@@ -38,7 +38,7 @@ class AccountController{
         $conn = $db->getConnection();
 
         // validate email
-        $sql = "select * from account where email = '$email'";
+        $sql = "select * from Account where email = '$email'";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
             echo "email exists" . "<br>";
@@ -46,7 +46,7 @@ class AccountController{
         }
 
         // validate username
-        $sql = "select * from account where username = '$username'";
+        $sql = "select * from Account where username = '$username'";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
             echo "username exists" . "<br>";
@@ -54,11 +54,11 @@ class AccountController{
         }
 
 
-        $sql = "insert into account(email, username, password, is_company)
+        $sql = "insert into Account(email, username, password, is_company)
                 values ('$email','$username', '$password', $is_company)";
             
         if($conn->query($sql) === TRUE){
-            // return account id
+            // return Account id
             $id = $conn->insert_id;
             return $id;
         } else {

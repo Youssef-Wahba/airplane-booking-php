@@ -12,8 +12,8 @@ class CityController{
     
     // get all cities
     /**
-     * Returns an array of all cities from the 'city' table in the database.
-     * Each city is represented as an associative array where the keys are the column names and the values are the corresponding values in the database.
+     * Returns an array of all cities from the 'City' table in the database.
+     * Each City is represented as an associative array where the keys are the column names and the values are the corresponding values in the database.
      * If there are no cities in the database, an empty array is returned.
      *
      * @return array An array of associative arrays representing all cities in the database.
@@ -22,7 +22,7 @@ class CityController{
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "select * from city";
+        $sql = "select * from City";
         $result = $conn->query($sql);
 
         $cities = array();

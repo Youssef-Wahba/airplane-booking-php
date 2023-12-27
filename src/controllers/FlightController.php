@@ -14,44 +14,44 @@ require_once "../airplane-booking-php/config/database.php";
 */
 class FlightController{
 
-    // get all flights
+    // get all Flights
     /**
-     * Returns an array of all flights from the 'flight' table in the database.
-     * Each flight is represented as an associative array where the keys are the column names and the values are the corresponding values in the database.
-     * If there are no flights in the database, an empty array is returned.
+     * Returns an array of all Flights from the 'Flight' table in the database.
+     * Each Flight is represented as an associative array where the keys are the column names and the values are the corresponding values in the database.
+     * If there are no Flights in the database, an empty array is returned.
      *
-     * @return array An array of associative arrays representing all flights in the database.
+     * @return array An array of associative arrays representing all Flights in the database.
      */
     public static function getAllFlights(){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "select * from flight";
+        $sql = "select * from Flight";
         $result = $conn->query($sql);
 
-        $flights = array();
+        $Flights = array();
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                array_push($flights, $row);
+                array_push($Flights, $row);
             }
         }
-        return $flights;
+        return $Flights;
     }
 
-    // get flight by id
+    // get Flight by id
     /**
-     * Returns an associative array representing a flight from the 'flight' table in the database, where the keys are the column names and the values are the corresponding values in the database.
-     * The flight is identified by the provided ID.
-     * If no flight with the provided ID is found in the database, null is returned.
+     * Returns an associative array representing a Flight from the 'Flight' table in the database, where the keys are the column names and the values are the corresponding values in the database.
+     * The Flight is identified by the provided ID.
+     * If no Flight with the provided ID is found in the database, null is returned.
      *
-     * @param int $id The ID of the flight to retrieve.
-     * @return array|null An associative array representing the flight with the provided ID, or null if no such flight is found.
+     * @param int $id The ID of the Flight to retrieve.
+     * @return array|null An associative array representing the Flight with the provided ID, or null if no such Flight is found.
      */
     public static function getFlightById($id){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "select * from flight where id = $id";
+        $sql = "select * from Flight where id = $id";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) {
@@ -61,38 +61,38 @@ class FlightController{
         return null;
     }
 
-    // get flight by company id
+    // get Flight by company id
     public static function getFlightsByCompanyId($company_id){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "select * from flight where company_id = $company_id";
+        $sql = "select * from Flight where company_id = $company_id";
         $result = $conn->query($sql);
 
-        $flights = array();
+        $Flights = array();
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                array_push($flights, $row);
+                array_push($Flights, $row);
             }
         }
-        return $flights;
+        return $Flights;
     }
 
 
-    // add flight
+    // add Flight
     /**
-     * Returns an array of flights from the 'flight' table in the database, where the keys are the column names and the values are the corresponding values in the database.
-     * The flights are filtered by the provided company ID.
-     * If no flights with the provided company ID are found in the database, an empty array is returned.
+     * Returns an array of Flights from the 'Flight' table in the database, where the keys are the column names and the values are the corresponding values in the database.
+     * The Flights are filtered by the provided company ID.
+     * If no Flights with the provided company ID are found in the database, an empty array is returned.
      *
-     * @param int $company_id The ID of the company to filter flights by.
-     * @return array An array of associative arrays representing the flights with the provided company ID.
+     * @param int $company_id The ID of the company to filter Flights by.
+     * @return array An array of associative arrays representing the Flights with the provided company ID.
      */
     public static function addFlight($name, $fee, $passenger_capacity, $company_id){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        $sql = "insert into flight (name, fee, passenger_capacity, company_id) 
+        $sql = "insert into Flight (name, fee, passenger_capacity, company_id) 
                 values ('$name', $fee, $passenger_capacity, $company_id)";
     
         if ($conn->query($sql) === TRUE) {
@@ -101,13 +101,5 @@ class FlightController{
             return false;
         }
     }
-
-
-    
-
-        
-
-    
-
 }
 ?>

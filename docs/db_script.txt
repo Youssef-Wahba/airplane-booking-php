@@ -6,7 +6,6 @@ CREATE TABLE Account (
     is_company BOOL NOT NULL
 );
 
-
 # one to one with account
 
 CREATE TABLE Company (
@@ -18,9 +17,8 @@ CREATE TABLE Company (
     telephone  VARCHAR(15),
     logo_img varchar(255),
     account_id INT NOT NULL UNIQUE,
-    FOREIGN KEY (account_id) REFERENCES account(id)
+    FOREIGN KEY (account_id) REFERENCES Account(id)
 );
-
 
 # one to one with account
 
@@ -34,16 +32,12 @@ CREATE TABLE Passenger (
     FOREIGN KEY (account_id) REFERENCES Account(id)
 );
 
-
-
 CREATE TABLE Messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     company_id INT NOT NULL, 
     message_text VARCHAR(1000) NOT NULL, 
     FOREIGN KEY (company_id) REFERENCES Company(id) 
 );
-
-
 
 CREATE TABLE City (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -60,9 +54,6 @@ CREATE TABLE Flight (
     FOREIGN KEY (company_id) REFERENCES Company(id)
 );
 
-
-
-
 # many to many
 
 CREATE TABLE FlightPassenger (
@@ -74,10 +65,6 @@ CREATE TABLE FlightPassenger (
     FOREIGN KEY (flight_id) REFERENCES Flight(id)
 );
 
-
-
-
-
 CREATE TABLE FlightCity (
     flight_id INT NOT NULL,
     city_id INT NOT NULL,
@@ -85,5 +72,5 @@ CREATE TABLE FlightCity (
     end_date DATE,
     PRIMARY KEY (flight_id, city_id),
     FOREIGN KEY (flight_id) REFERENCES Flight(id),
-    FOREIGN KEY (city_id) REFERENCES city(id)
+    FOREIGN KEY (city_id) REFERENCES City(id)
 );
