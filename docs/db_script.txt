@@ -35,6 +35,16 @@ CREATE TABLE Passenger (
 );
 
 
+
+CREATE TABLE Messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    company_id INT NOT NULL, 
+    message_text VARCHAR(1000) NOT NULL, 
+    FOREIGN KEY (company_id) REFERENCES Company(id) 
+);
+
+
+
 CREATE TABLE City (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL

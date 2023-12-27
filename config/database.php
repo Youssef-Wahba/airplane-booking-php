@@ -3,7 +3,7 @@
 define("DB_HOST","localhost");
 define("DB_USER","user");
 define("DB_PASS","password");
-define("DB_NAME","flight_booking");
+define("DB_NAME","flight_booking_db");
 class Database{
     // single instance of self shared among all instances
     private static $instance = null;
