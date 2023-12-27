@@ -30,12 +30,26 @@
         // Perform login validation (you can replace this with your actual authentication logic)
         const email = formData.get('email');
         const password = formData.get('password');
+        
+        const accountType = determineAccountType(email);
 
-        // Dummy validation (replace with your actual logic)
-        if (email === 'user@example.com' && password === 'password123') {
-            alert('Login successful!');
+        // Redirect based on the account type
+        if (accountType === 'company') {
+            window.location.href = 'company-home.html';
+        } else if (accountType === 'passenger') {
+            window.location.href = 'passenger-home.html';
         } else {
-            alert('Invalid email or password. Please try again.');
+            alert('Invalid account type. Please try again.');
+        }
+    }
+
+    // Dummy function to determine the account type (replace with your actual logic)
+    function determineAccountType(email) {
+        // Example: Check if the email contains 'company' to identify a company account
+        if (email.includes('company')) {
+            return 'company';
+        } else {
+            return 'passenger';
         }
     }
 </script>
