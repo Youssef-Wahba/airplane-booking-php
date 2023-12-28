@@ -1,3 +1,8 @@
+<?php
+    require "../src/controllers/CompanyController.php";
+    $company = CompanyController::getCompanyByAccountId($_COOKIE["account_id"]);
+?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -10,8 +15,12 @@
 
     <header>
         <div class="header-buttons">
-            <button onclick="goToHomePage()">Home</button>
-            <button onclick="signOut()">Sign Out</button>
+            <a href="company-home.php">
+                <button type="button">Home</button>
+            </a>
+            <a href="login.php?logout=true">
+                <button type="button">Log out</button>
+            </a>
         </div>
         <h1>Company Name</h1>
         <img src="../assets/egyptair-logo-1.png" alt="Company Logo" class="company-logo">

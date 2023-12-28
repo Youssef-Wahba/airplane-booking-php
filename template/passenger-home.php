@@ -1,3 +1,12 @@
+<?php
+    require "../src/controllers/PassengerController.php";
+    require "../src/controllers/FlightPassengerController.php";
+    $data = PassengerController::getPassengerByAccountId($_COOKIE["account_id"]);
+    $name = $data["name"];
+    $tel = $data["tel"];
+    $data = FlightPassengerController::getFlightPassengerByPassengerId($_COOKIE["account_id"]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +19,13 @@
 
 <header>
     <div class="header-buttons">
-        <button onclick="signOut()">Sign Out</button>
+        <a href="login.php?logout=true">
+            <button type="button">Log out</button>
+        </a>
     </div>
-    <h1>Lionel Messi</h1>
+    <h1><?php echo $name?></h1>
+    <p><?php echo $tel?></p>
     <img src="../assets/Messi.png" alt="Passenger Image">
-    <p>Email: thegoat69@example.com</p>
-    <p>Telephone: 0101511216</p>
 </header>
 
 <h2>List of Completed Flights</h2>
@@ -32,10 +42,10 @@
     <!-- Add more current flight list items as needed -->
 </ul>
 
-<h2><a href="passenger-profile.html">Profile</a></h2>
+<h2><a href="passenger-profile.php">Profile</a></h2>
 <!-- Passenger Profile Information -->
 
-<h2><a href="search-flight.html">Search a Flight</a></h2>
+<h2><a href="search-flight.php">Search a Flight</a></h2>
 <!-- Search Flight Form (you can add form elements as needed) -->
 
 <script>

@@ -1,6 +1,6 @@
 <?php
 
-require_once "../airplane-booking-php/config/database.php";
+require_once "../config/database.php";
 
 /*
     CREATE TABLE Flight (
@@ -137,7 +137,18 @@ class FlightController{
         }
         return $Flights;
     }
+       // delete flight by id
+    public static function deleteFlightById($id){
+        $db = Database::getInstance();
+        $conn = $db->getConnection();
 
+        $sql = "delete from Flight where id = $id";
+        if ($conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 ?>

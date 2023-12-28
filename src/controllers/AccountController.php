@@ -1,6 +1,6 @@
 <?php
 
-require_once "../airplane-booking-php/config/database.php";
+require_once "../config/database.php";
 class AccountController{
 
 
@@ -37,21 +37,19 @@ class AccountController{
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
-        // validate email
-        $sql = "select * from Account where email = '$email'";
+        // validate email and username
+        $sql = "select * from Account where email = '$email' or username = '$username'";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
-            echo "email exists" . "<br>";
             return false;
         }
 
-        // validate username
-        $sql = "select * from Account where username = '$username'";
-        $result = $conn->query($sql);
-        if($result->num_rows > 0){
-            echo "username exists" . "<br>";
-            return false;
-        }
+        // // validate username
+        // $sql = "select * from Account where username = '$username'";
+        // $result = $conn->query($sql);
+        // if($result->num_rows > 0){
+        //     return false;
+        // }
 
 
         $sql = "insert into Account(email, username, password, is_company)
@@ -65,7 +63,4 @@ class AccountController{
             return false;
         }
     }
-
-
-    
 }

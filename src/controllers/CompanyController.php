@@ -1,6 +1,6 @@
 <?php
 
-require_once "../airplane-booking-php/config/database.php";
+require_once "../config/database.php";
 
 
 /*
@@ -53,7 +53,7 @@ class CompanyController{
 
         $sql = "insert into Company(name, bio, address, location, telephone, logo_img, account_id)
                 values ('$name', '$bio', '$address', '$location', '$telephone', '$logo_img', $account_id)";
-            
+
         if($conn->query($sql) === TRUE){
             return true;
         } else {

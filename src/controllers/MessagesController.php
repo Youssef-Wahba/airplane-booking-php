@@ -1,6 +1,6 @@
 <?php
 
-require_once "../airplane-booking-php/config/database.php";
+require_once "../config/database.php";
 
 /*
     CREATE TABLE Messages (
@@ -21,7 +21,7 @@ class MessageController{
      * @param int $company_id The ID of the company to filter messages by.
      * @return array|null An array of associative arrays representing the messages with the provided company ID, or null if no such messages are found.
      */
-    public static function getMessagesByCompanyId($company_id){
+    public static function getMessagesBycompany_id($company_id){
         $db = Database::getInstance();
         $conn = $db->getConnection();
 
