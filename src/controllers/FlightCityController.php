@@ -41,4 +41,40 @@ class FlightCityController
             return false;
         }
     }
+
+    // get flight city by flight id
+    public static function getFlightCitiesByFlightId($flight_id)
+    {
+        $db = Database::getInstance();
+        $conn = $db->getConnection();
+
+        $sql = "select * from FlightCity where flight_id = $flight_id";
+        $result = $conn->query($sql);
+
+        $flightCities = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($flightCities, $row);
+            }
+        }
+        return $flightCities;
+    }
+
+    // get flight city by city id
+    public static function getFlightCitiesByCityId($city_id)
+    {
+        $db = Database::getInstance();
+        $conn = $db->getConnection();
+
+        $sql = "select * from FlightCity where city_id = $city_id";
+        $result = $conn->query($sql);
+
+        $flightCities = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($flightCities, $row);
+            }
+        }
+        return $flightCities;
+    }
 }
